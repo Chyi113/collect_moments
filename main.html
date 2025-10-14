@@ -6,35 +6,9 @@
   <script src="./main.js" type="module"></script>
   <title>LIFF 測試頁面</title>
   <!-- 引入 LINE LIFF SDK -->
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 
 <body>
   <h1>LIFF 測試頁面</h1>
-  <p id="status">初始化中...</p>
-  <div id="profile"></div>
-
-  <script>
-    async function main() {
-      try {
-        // 初始化 LIFF
-        await liff.init({ liffId: "2008287633-LeMR0nDo" });
-        document.getElementById("status").textContent = "✅ LIFF 初始化成功！";
-
-        // 取得使用者資訊
-        const profile = await liff.getProfile();
-        document.getElementById("profile").innerHTML = `
-          <p>👤 使用者名稱：${profile.displayName}</p>
-          <img src="${profile.pictureUrl}" width="100">
-          <p>User ID：${profile.userId}</p>
-        `;
-      } catch (err) {
-        console.error(err);
-        document.getElementById("status").textContent = "❌ LIFF 初始化失敗：" + err;
-      }
-    }
-
-    main();
-  </script>
 </body>
 </html>
